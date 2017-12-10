@@ -2,7 +2,7 @@
 #include <QListWidget>
 #include "item_model.h"
 
-class ListWidget : QListWidget {
+class ListWidget : public QListWidget {
 	Q_OBJECT
 public:
 	explicit ListWidget(QWidget *parent = Q_NULLPTR);
