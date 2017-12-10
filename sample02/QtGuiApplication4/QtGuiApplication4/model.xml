@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="Test">
+    <class name="Explorer2">
+        <property name="id" dataType="int" listType="none" readOnly="true"/>
+        <property name="name" dataType="float" listType="" readOnly="false"/>
+        <property name="isVisible" keyType="bool" valueType="QString" dataType="bool" listType="map" readOnly="false"/>
+        <property name="name5" dataType="char" listType="" readOnly="false"/>
+    </class>
+    <class name="Explorer1">
+        <property name="id" dataType="int" listType="none" readOnly="true"/>
+        <property name="name" dataType="QString" listType="list" readOnly="false"/>
+        <property name="isVisible" keyType="bool" valueType="QString" dataType="bool" listType="map" readOnly="false"/>
+    </class>
+    <class name="Explorer4">
+        <property name="id" dataType="int" listType="none" readOnly="true"/>
+        <property name="name" dataType="QString" listType="list" readOnly="false"/>
+        <property name="isVisible" keyType="bool" valueType="QString" dataType="bool" listType="map" readOnly="false"/>
+    </class>
+    <class name="Explorer3">
+        <property name="id" dataType="int" listType="none" readOnly="true"/>
+        <property name="name" dataType="QString" listType="list" readOnly="false"/>
+        <property name="isVisible" keyType="bool" valueType="QString" dataType="bool" listType="map" readOnly="false"/>
+    </class>
+    <class name="Explorer5">
+        <property name="id" dataType="int" listType="none" readOnly="true"/>
+        <property name="name" dataType="QString" listType="list" readOnly="false"/>
+        <property name="isVisible" keyType="bool" valueType="QString" dataType="bool" listType="map" readOnly="false"/>
+    </class>
+    <class name="Service"/>
+</model>
