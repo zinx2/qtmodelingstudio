@@ -23,3 +23,16 @@ sample02/QtGuiApplication4/QtGuiApplication4/release
 
 sample02/QtGuiApplication4/QtGuiApplication4/debug
 
+QtModelingStudio/.vs/QtModelingStudio/v14/.suo
+QtModelingStudio/debug
+QtModelingStudio/QtModelingStudio.pro.user
+QtModelingStudio/QtModelingStudio.sln
+QtModelingStudio/QtModelingStudio.VC.db
+QtModelingStudio/QtModelingStudio.vcxproj
+QtModelingStudio/QtModelingStudio.vcxproj.filters
+QtModelingStudio/QtModelingStudio.vcxproj.user
+
+QtModelingStudio/Win32
+QtModelingStudio/x64
+sample02/QtGuiApplication4/QtGuiApplication4.VC.db
+QtModelingStudio/GeneratedFiles
