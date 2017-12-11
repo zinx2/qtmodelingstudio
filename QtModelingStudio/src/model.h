@@ -10,7 +10,7 @@ class Proto : public QObject {
 		Q_PROPERTY(QString dir READ dir WRITE setDir NOTIFY dirChanged)
 		Q_PROPERTY(QList<int> children READ children WRITE setChildren NOTIFY childrenChanged)
 public:
-
+	Proto() { }
 	Proto(int id, int pid, int type, QString name, QString dir="") : m_id(id), m_name(name), m_type(type), m_parent(pid), m_dir(dir) { }
 
 	int id() const { return m_id; }
@@ -213,6 +213,15 @@ public:
 			}
 		}
 		return obj;
+	}
+
+	int getRowId(int id ) {
+		for (int i = 0; i < m_objs.size(); i++) {
+			if (id == m_objs[i]->id()) {				
+				return i;
+			}
+		}
+		return -1;
 	}
 
 signals:
