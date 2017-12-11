@@ -8,6 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);	
 	d = Design::instance();
+	m = ViewModel::instance();
+	db = new DBManager();
+	db->selectDB();
+	for (Explorer* project : m->projects())
+		db->modifyExtended(project->id(), 0);
 	
     QAction *actionAdd     = new QAction(QStringLiteral("패키지 추가"), this);
     actionAdd->setIconText(QStringLiteral("패키지 추가"));
@@ -68,6 +73,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	d->setToolbarWidth(toolbar->width()); d->setToolbarHeight(toolbar->height());
 	d->setStatusbarWidth(statusBar()->width()); d->setStatusbarHeight(statusBar()->height());
 	d->setTitleBarHeight(this->style()->pixelMetric(QStyle::PM_TitleBarHeight, 0, this));
+
+	m->setMessage("Ready.");
+	connect(this, SIGNAL(messageChanged()), qApp, SLOT(quit()));
+
 }
 void MainWindow::initialize()
 {
@@ -214,10 +223,31 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
 void MainWindow::onAdd()
 {
 	qDebug() << "ADD";
+	m->setMessage("Select Directory to add.");
+	QString path = QFileDialog::getSaveFileName(this, "Save File...", QDir::currentPath(), "Package (*.xml)");
+
+	/* UPDATE DATABASE. */
+	QStringList temp = path.split("/");
+	QString name = temp[temp.length() - 1];
+	if (!db->insertDB(name, path)) {
+		m->setMessage("Can't insert the data to DB.");
+		return;
+	}
+
+	m->setDir(path);
+	qDebug() << path;
 }
 void MainWindow::onOpen()
 {
 	qDebug() << "OPEN";
+	//m->setMessage("Select Directory to open.");
+	//QString path = QFileDialog::getOpenFileName(this, "Open Package File...", QDir::currentPath(), "Package (*.xml)");
+
+	//if (path.isEmpty()) {
+	//	m->setMessage("Canceled.");
+	//	return;
+	//}
+	//m->setDir(path);
 }
 void MainWindow::onSave()
 {
@@ -234,4 +264,9 @@ void MainWindow::onRemove()
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onStatusChanged()
+{
+	statusBar()->showMessage(m->message());
 }

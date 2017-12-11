@@ -7,6 +7,8 @@
 #include "widget_info.h"
 #include "widget_adjustbar.h"
 #include "design.h"
+#include "model.h"
+#include "db_manager.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +32,7 @@ public:
 	void onExtract();
 	void onRemove();
 	void onAdjust(QMouseEvent*);
+	void onStatusChanged();
 
 protected:
 	void resizeEvent(QResizeEvent* event) override;
@@ -38,6 +41,8 @@ protected:
 
 private:
 	Design* d;
+	ViewModel* m;
+	DBManager* db;
     Ui::MainWindow *ui;
 	bool m_initialized = false;
 	

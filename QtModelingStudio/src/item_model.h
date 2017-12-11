@@ -1,6 +1,6 @@
 #pragma once
 #include <QAbstractItemModel>
-#include "abstract_list_model.h"
+#include "model.h"
 #include <QDebug>
 class Object : public Proto
 {
@@ -26,7 +26,15 @@ private:
 
 class ListModel : public AbstractListModel {
 	Q_OBJECT
+private:
+	ListModel() { };
+	static ListModel* m_instance;
 public:
+	static ListModel* instance() {
+		if (m_instance == nullptr) m_instance = new ListModel();
+		return m_instance;
+	}
+
 	void moveClass(int fromIndex, int toIndex) {  
 		Object* fromItem = qobject_cast<Object*>(objs()[fromIndex]);
 		Object* toItem = qobject_cast<Object*>(objs()[toIndex]);

@@ -36,3 +36,6 @@ QtModelingStudio/Win32
 QtModelingStudio/x64
 sample02/QtGuiApplication4/QtGuiApplication4.VC.db
 QtModelingStudio/GeneratedFiles
+build-QtModelingStudio-Desktop_Qt_5_9_2_MinGW_32bit-Debug
+QtModelingStudio/.vs
+QtModelingStudio/release

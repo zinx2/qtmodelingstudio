@@ -69,7 +69,7 @@ public:
 																query.value(2).toString(),
 																query.value(3).toInt()));
 		}
-		Model::instance()->setProjects(dummy);		
+		ViewModel::instance()->setProjects(dummy);		
 	}
 
 	bool modifyExtended(int id, bool extended) {

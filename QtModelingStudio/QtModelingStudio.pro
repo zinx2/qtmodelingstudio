@@ -23,21 +23,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
+#SOURCES = $$files(*.cpp, true)
+#HEADERS = $$files(*.h, true)
+VPATH += ./src
 SOURCES += \
-        src/main.cpp \
-        src/mainwindow.cpp \
-        src/widget_editor.cpp \
-        src/widget_explorer.cpp \
-        src/widget_info.cpp
+design.cpp \
+list_widget.cpp \
+main.cpp \
+mainwindow.cpp \
+model_editor.cpp \
+widget_adjustbar.cpp \
+widget_editor.cpp \
+widget_explorer.cpp \
+widget_info.cpp \
 
 HEADERS += \
-        src/mainwindow.h \
-        src/list_model.h \
-        src/qheader.h \
-        src/widget_editor.h \
-        src/widget_explorer.h \
-        src/widget_info.h \
-        src/wrapped_widget.h
+abstract_list_model.h \
+db_manager.h \
+design.h \
+item_model.h \
+list_widget.h \
+list_widget_item.h \
+mainwindow.h \
+model_editor.h \
+qheader.h \
+widget_adjustbar.h \
+widget_editor.h \
+widget_explorer.h \
+widget_info.h \
+wrapped_widget.h \
 
 FORMS += \
         mainwindow.ui

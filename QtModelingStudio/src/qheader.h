@@ -40,3 +40,5 @@
 #include <QCheckBox>
 #include <QComboBox>
 
+#include <QList>
+#include <QAbstractItemModel>
