@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qheader.h"
+#include "package_manager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -256,6 +257,7 @@ void MainWindow::onSave()
 void MainWindow::onExtract()
 {
 	qDebug() << "EXTRACT";
+	PackageManager::instance()->generate(0);
 }
 void MainWindow::onRemove()
 {

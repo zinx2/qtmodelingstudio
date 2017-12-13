@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="Exp">
+    <class name="  Class1">
+        <property name="pro1_1" dataType="int" listType="" readOnly="false"/>
+        <property name="pro2_1" dataType="QString" listType="" readOnly="false"/>
+        <property name="pro3_1" dataType="bool" listType="" readOnly="false"/>
+        <property name="pro4_1" dataType="float" listType="" readOnly="false"/>
+    </class>
+    <class name="  Class2">
+        <property name="pro1_2" dataType="int" listType="" readOnly="false"/>
+        <property name="pro2_2" dataType="QString" listType="" readOnly="false"/>
+        <property name="pro3_2" dataType="bool" listType="" readOnly="false"/>
+    </class>
+    <class name="  Class3">
+        <property name="pro1_3" dataType="int" listType="" readOnly="false"/>
+        <property name="pro2_3" dataType="QString" listType="" readOnly="false"/>
+        <property name="pro3_3" dataType="bool" listType="" readOnly="false"/>
+        <property name="pro4_3" dataType="float" listType="" readOnly="false"/>
+    </class>
+</package>

@@ -12,7 +12,12 @@ public:
 	{ 
 		if(type == CLASS || type == PROPERTY)	m_hidden = true;		
 	}
-	
+	Object(int id, int pid, int type, QString name, QString dataType, QString dir="", QString listType="") :
+		Proto(id, pid, type, name, dataType, dir, listType)
+	{
+		if (type == CLASS || type == PROPERTY)	m_hidden = true;
+	}
+
 	bool hidden() const { return m_hidden; }
 	void setHidden(bool m) { m_hidden = m; }
 

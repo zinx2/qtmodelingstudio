@@ -6,19 +6,29 @@ class Proto : public QObject {
 		Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged)
 		Q_PROPERTY(int parent READ parent WRITE setParent NOTIFY parentChanged)
 		Q_PROPERTY(int type READ type WRITE setType NOTIFY typeChanged)
+		Q_PROPERTY(bool isReadOnly READ isReadOnly WRITE setIsReadOnly NOTIFY isReadOnlyChanged)
 		Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 		Q_PROPERTY(QString dir READ dir WRITE setDir NOTIFY dirChanged)
+		Q_PROPERTY(QString listType READ listType WRITE setListType NOTIFY listTypeChanged)
+		Q_PROPERTY(QString dataType READ dataType WRITE setDataType NOTIFY dataTypeChanged)
+		//Q_PROPERTY(QString valueType READ dataType WRITE setDataType NOTIFY dataTypeChanged) /*Hash Type VALUE */
 		Q_PROPERTY(QList<int> children READ children WRITE setChildren NOTIFY childrenChanged)
 public:
 	Proto() { }
 	Proto(int id, int pid, int type, QString name, QString dir="") : m_id(id), m_name(name), m_type(type), m_parent(pid), m_dir(dir) { }
+	Proto(int id, int pid, int type, QString name, QString dataType, QString dir = "", QString listType="") : 
+		m_id(id), m_name(name), m_dataType(dataType), m_type(type), m_parent(pid), m_dir(dir), m_listType(listType) { }
 
 	int id() const { return m_id; }
 	int parent() const { return m_parent; }
 	int type() const { return m_type; }
 	int offset() const { return m_offset - 1; }
+	bool isReadOnly() const{ return m_isReadOnly; }
 	QString name() const { return m_name; }
 	QString dir() const { return m_dir; }
+	QString listType() const { return m_listType; }
+	QString dataType() const { return m_dataType; }
+	//QString valueType() const { return m_valueType; }
 	QList<int> children() const { return m_children; }
 	int lastChild() {
 		int size = m_children.size();
@@ -30,8 +40,12 @@ public:
 	void setId(const int m) { m_id = m; emit idChanged(); }
 	void setParent(const int m) { m_parent = m; emit parentChanged(); }
 	void setType(const int m) { m_type = m; emit typeChanged(); }
+	void setIsReadOnly(const bool m) { m_isReadOnly = m; emit isReadOnlyChanged(); }
 	void setName(const QString m) { m_name = m; emit nameChanged(); }
 	void setDir(const QString m) { m_name = m; emit dirChanged(); }
+	void setListType(const QString m) { m_listType = m; emit listTypeChanged(); }
+	void setDataType(const QString m) { m_dataType = m; emit dataTypeChanged(); }
+	//void setValueType(const QString m) { m_valueType = m; emit valueTypeChanged(); }
 	void setChildren(const QList<int> m) { m_children = m; emit childrenChanged(); }
 
 	bool appendChild(const int targetId) {
@@ -71,8 +85,12 @@ signals:
 	void parentChanged();
 	void nameChanged();
 	void dirChanged();
+	void isReadOnlyChanged();
 	void typeChanged();
 	void childrenChanged();	
+	void listTypeChanged();
+	void dataTypeChanged();
+	//void valueTypeChanged();
 
 protected:
 	int findChildIndex(int targetId) {
@@ -89,8 +107,12 @@ private:
 	int m_parent = -1;
 	int m_type;
 	int m_offset = 0;
+	bool m_isReadOnly = false;
 	QString m_name;
 	QString m_dir;
+	QString m_listType;
+	QString m_dataType;
+	//QString m_valueType;
 	QList<int> m_children;
 };
 
@@ -412,7 +434,7 @@ signals:
 	void logClear();
 	void zoomIn();
 	void zoomOut();
-  void fullChanged();
+	void fullChanged();
 	void pressedCtrlChanged();
 	void scaleChanged();
 	void scaledItemWidthChanged();
